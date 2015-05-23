@@ -1,3 +1,3 @@
 #tadpole
 
-A testing tool
+A testing tool for computer networks
