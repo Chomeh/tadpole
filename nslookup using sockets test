@@ -1,0 +1,24 @@
+@@ -0,0 +1,24 @@
+__author__ = 'julia'
+
+import socket
+from tests.Test import Test
+
+
+class DNStest(test):
+    def __init__(self, input_DNS_name, input_ip_address):
+        self.ip_list = []
+        self.expected_ip_address = [input_ip_address]
+        self.DNS_name = input_DNS_name
+    def RunTest(self):
+        get_ip_from_dns = socket.getaddrinfo(self.DNS_name,0,0,0,0)
+        for result in get_ip_from_dns:
+            self.ip_list.append(result[-1][0])
+        if self.ip_list == self.expected_ip_address:
+            print ('pass')
+        else:
+            print ('fail')
+
+instance_DNS = DNStest('www.youtube.com', '216.58.220.110')
+instance_DNS.RunTest()
+
